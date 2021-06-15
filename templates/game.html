@@ -1,9 +1,24 @@
-{% extends "index.html" %}{% block title %}Game{% endblock %}
+{% extends "index.html" %}
+{% block head %}
+    <meta charset="UTF-8">
+    <title>{% block title %}Game{% endblock %}</title>
+        <link rel="stylesheet" href="static/style.css">
+        <script src="JS/game.js" defer></script>
+{% endblock %}
 <body>
     {% block content %}
         <form action="/">
         <button type="submit">Back to main</button>
         </form>
+        <main>
+            <section id="status"> YOU LOSE!</section>
+            <section id="slots">
+                <div id="slot1"></div>
+                <div id="slot2"></div>
+                <div id="slot3"></div>
+            </section>
+        <section id="take_spin">TAKE A SPIN!</section>
+        </main>
     {% endblock %}
 
 </body>
