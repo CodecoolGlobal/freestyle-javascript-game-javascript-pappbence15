@@ -19,3 +19,12 @@ def get_users_password(cursor, username):
 
     cursor.execute(query, (username,))
     return cursor.fetchall()
+
+
+@connection_handler.connection_handler
+def register_user(cursor, user_name, password):
+    query = """
+        INSERT INTO users (user_name, password, balance)
+        values (%s, %s, %s)
+"""
+    cursor.execute(query, (user_name, password, 5000))

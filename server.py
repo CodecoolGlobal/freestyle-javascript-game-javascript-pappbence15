@@ -1,6 +1,5 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request
 import user_handler
-import bcrypt
 
 app = Flask(__name__)
 
@@ -32,8 +31,15 @@ def logout():
     session.pop("username")
     return redirect(url_for("/"))
 
+
 @app.route("/registration", methods=['POST', 'GET'])
 def registration():
+    if request.method == "POST":
+        if request.form['password'] == request.form['repeat_password']:
+            hashed_password = util.hash_password(request.form['password'])
+            user_handler.register_user(request.form['user_name'], hashed_password)
+            return redirect("/")
+        return render_template('registration.html', error_message='two passwords are not matching')
     return render_template("registration.html")
 
 
