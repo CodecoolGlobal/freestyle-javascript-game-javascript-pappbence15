@@ -9,7 +9,7 @@ html {
   background-color: black;
 }
 :root {
-  --var-color: rgba(240, 246, 21, 0.91);
+  --var-color: rgb(69, 14, 255);
 }
 section {
   /*height: 100vh;*/
@@ -19,7 +19,7 @@ section {
   justify-content: center;
 }
 .container h1 {
-  font-size: 5vw;
+  font-size: 8vw;
   color: var(--var-color);
   position: relative;
 }
@@ -70,19 +70,19 @@ section {
 a{
     position: relative;
     display: inline-block;
-    padding: 15px 30px;
-    color: #2196f3;
+    padding: 20px 40px;
+    color: #450eff;
     text-transform: uppercase;
-    letter-spacing: 4px;
+    letter-spacing: 6px;
     text-decoration: none;
-    font-size: 24px;
+    font-size: 45px;
     overflow: hidden;
     transition: 0.5s;
 }
 a:hover{
     color: #255784;
-    background: #2196f3;
-    box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 80px #2196f3;
+    background: #450eff;
+    box-shadow: 0 0 10px #450eff, 0 0 40px rgba(69, 14, 255, 0.98), 0 0 80px rgba(69, 14, 255, 0.96);
 }
 p{
   font-family: "Nunito", serif;
