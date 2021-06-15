@@ -2,12 +2,16 @@ from flask import Flask, render_template, request, session, redirect, url_for
 import user_handler
 import util
 import bcrypt
+import os
+
+
 app = Flask(__name__)
+app.secret_key = os.environ.get('SECRET_KEY')
 
 
 @app.route("/")
 def hello():
-    return render_template("index.html")
+    return render_template("index.html", session=session)
 
 
 @app.route("/login", methods=['POST', 'GET'])
@@ -19,7 +23,7 @@ def login():
             correct_password = user_handler.get_users_password(username)[0]["password"]
             if bcrypt.checkpw(password.encode('utf-8'), correct_password.encode('utf-8')):
                 session["username"] = username
-                return redirect(url_for("/"))
+                return redirect(url_for("hello"))
             else:
                 return render_template("index.html", failed=True)
         except IndexError:

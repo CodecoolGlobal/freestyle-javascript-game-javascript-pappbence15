@@ -1,7 +1,9 @@
 {% extends "index.html" %}{% block title %}Log in/registrations{% endblock %}
 <body>
     {% block content %}
-        <h1>REGISTER</h1>
+        <div class="container">
+        <h1 data-text="REGISTER">REGISTER</h1>
+        </div>
         <form action="/registration" method="post">
             <p>User name: <input type="text" name="user_name"></p>
             <p>Password: <input type="password" name="password"></p>
