@@ -1,5 +1,6 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for, session
 import user_handler
+import bcrypt
 
 app = Flask(__name__)
 
@@ -15,9 +16,21 @@ def login():
         try:
             username = request.form["username"]
             password = request.form["password"]
-            correct_password = user_handler.get_users_password(username)[0]
+            correct_password = user_handler.get_users_password(username)[0]["password"]
+            if bcrypt.checkpw(password.encode('utf-8'), correct_password.encode('utf-8')):
+                session["username"] = username
+                return redirect(url_for("/"))
+            else:
+                return render_template("index.html", failed=True)
+        except IndexError:
+            return render_template("index.html", failed=True)
+
     return render_template("login.html")
 
+@app.route("/logout")
+def logout():
+    session.pop("username")
+    return redirect(url_for("/"))
 
 @app.route("/registration", methods=['POST', 'GET'])
 def registration():
