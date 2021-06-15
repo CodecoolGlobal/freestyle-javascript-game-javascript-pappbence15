@@ -11,7 +11,8 @@ app.secret_key = os.environ.get('SECRET_KEY')
 
 @app.route("/")
 def hello():
-    return render_template("index.html", session=session)
+    biggest_wins = user_handler.get_biggest_wins()
+    return render_template("index.html", session=session, biggest_wins=biggest_wins)
 
 
 @app.route("/login", methods=['POST', 'GET'])
@@ -52,7 +53,8 @@ def registration():
 @app.route("/<username>", methods=['POST', 'GET'])
 def user_page(username):
     username = session["username"]
-    return render_template("userpage.html", username=username)
+    user_details = user_handler.get_users_details(username)[0]
+    return render_template("userpage.html", username=username, user_details=user_details)
 
 
 @app.route("/game")
