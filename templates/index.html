@@ -1,10 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% block head %}
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>{% block title %}Index{% endblock %}</title>
+        <link rel="stylesheet" href="style/style.css">
+        <script src="JS/game.js" defer></script>
+    {% endblock %}
 </head>
 <body>
-
+    <div id="login-reg">
+        <a href="registration.html">Log in/register</a>
+    </div>
+    {% block content %}
+    <h1>Szia uram!</h1>
+    <div id="high-score">
+        <table>
+        </table>
+    </div>
+    <div id="buttons">
+        <form action="game.html">
+            <button type="submit">PLAY</button>
+        </form>
+        <form action="rules.html"></form>
+            <button type="submit">RULES</button>
+    </div>
+{% endblock %}
 </body>
 </html>
