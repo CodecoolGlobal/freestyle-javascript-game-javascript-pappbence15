@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, session, redirect, url_for
 import user_handler
 import util
-
+import bcrypt
 app = Flask(__name__)
 
 
