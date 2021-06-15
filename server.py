@@ -3,7 +3,7 @@ from flask import Flask, render_template, request, redirect, session
 app = Flask(__name__)
 
 
-@app.route("/", methods=['POST', 'GET'])
+@app.route("/")
 def hello():
     return render_template("index.html")
 
