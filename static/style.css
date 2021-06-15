@@ -97,3 +97,30 @@ button{
     text-align: center;
     margin-top: 40px;
 }
+label{
+    color: #fff;
+  text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #fff,
+      0 0 82px #fff,
+      0 0 92px #fff,
+      0 0 102px #fff,
+      0 0 151px #fff;
+}
+input{
+    font: inherit;
+    padding: 0.2em 0.5em;
+    width:130px;
+    height:30px;
+    overflow: hidden;
+    border-radius:0.5em;
+    outline: none;
+    border-color: #450eff;
+    color: white;
+    background-color: #5626fd;
+}
+::placeholder{
+    color: white;
+}
