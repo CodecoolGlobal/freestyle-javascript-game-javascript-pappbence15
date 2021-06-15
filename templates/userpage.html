@@ -1,4 +1,4 @@
-{% extends index.html %}{% block title %}User page{% endblock %}
+{% extends "index.html" %}{% block title %}User page{% endblock %}
 <body>
     {% block content %}
         <h1>{{ name }}</h1>
@@ -10,7 +10,7 @@
             <buttton type="submit">Delete</buttton>
         </form>
     {% endblock %}
-        <form action="index.html">
+        <form action="/">
         <button type="submit">Back to main</button>
         </form>
 
