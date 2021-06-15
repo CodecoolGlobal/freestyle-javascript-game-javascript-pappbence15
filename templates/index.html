@@ -10,7 +10,18 @@
 </head>
 <body>
     <div id="login-reg">
-        <a href="/registration">Log in/register</a>
+        {% if not session['username'] %}
+            <form action="/login" method="post">
+                <label for="username"> Username: </label>
+                <input type="text" name="username">
+                <label for="password">Password: </label>
+                <input type="password" name="password">
+                <button type="submit">Log in</button>
+            </form>
+            <a href="/registration">Register</a>
+        {% else %}
+            <a href="/{{ session['username'] }}">{{ session['username'] }}</a>
+        {% endif %}
     </div>
     {% block content %}
     <h1>Szia uram!</h1>
