@@ -1,17 +1,26 @@
 {% extends "index.html" %}{% block title %}User page{% endblock %}
 <body>
     {% block content %}
-        <h1>{{ name }}</h1>
-        <h1>{{ current_money }}</h1>
         <form action="/userpage" method="post">
             <button type="submit">Add</button>
         </form>
         <form action="/userpage" method="get">
-            <buttton type="submit">Delete</buttton>
+            <button type="submit">Delete</button>
         </form>
-    {% endblock %}
+            <table style="background-color: white">
+            <th>Username</th>
+            <th>Balance</th>
+            <th>Biggest Win</th>
+            <tr>
+                <td>{{ user_details.user_name }}</td>
+                <td>{{ user_details.balance }}</td>
+                <td>{{ user_details.biggest_win }}</td>
+            </tr>
+        </table>
         <form action="/">
         <button type="submit">Back to main</button>
         </form>
+    {% endblock %}
+
 
 </body>

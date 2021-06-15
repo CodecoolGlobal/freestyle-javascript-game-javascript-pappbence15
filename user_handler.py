@@ -41,3 +41,13 @@ def get_biggest_wins(cursor):
 
     cursor.execute(query)
     return cursor.fetchall()
+
+  
+@connection_handler.connection_handler
+def get_users_details(cursor, username):
+    query = """
+    SELECT * FROM users
+    WHERE user_name = %s"""
+
+    cursor.execute(query, (username,))
+    return cursor.fetchall()
