@@ -26,6 +26,9 @@
             <button type="submit">Logout</button>
             </form>
         {% endif %}
+        {% if failed == True %}
+        <h3 style="color: white">Wrong username or password, try again!</h3>
+        {% endif %}
     </div>
     {% block content %}
         <section>
@@ -52,11 +55,15 @@
         </table>
     </div>
     <div id="buttons" class="center-form">
-        <form action="game.html">
+        <form action="/game">
             <button type="submit">PLAY</button>
         </form>
-        <form action="rules.html"></form>
+        <form action="/rules">
             <button type="submit">RULES</button>
+        </form>
+        {% if not_logged_in == True %}
+            <h3 style="color: white">You are not logged in!</h3>
+        {% endif %}
     </div>
 {% endblock %}
 </body>

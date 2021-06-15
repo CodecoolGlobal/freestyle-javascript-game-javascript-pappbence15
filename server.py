@@ -17,6 +17,7 @@ def hello():
 
 @app.route("/login", methods=['POST', 'GET'])
 def login():
+    biggest_wins = user_handler.get_biggest_wins()
     if request.method == "POST":
         try:
             username = request.form["username"]
@@ -26,11 +27,12 @@ def login():
                 session["username"] = username
                 return redirect(url_for("hello"))
             else:
-                return render_template("index.html", failed=True)
+                return render_template("index.html", failed=True, session=session, biggest_wins=biggest_wins)
         except IndexError:
-            return render_template("index.html", failed=True)
+            return render_template("index.html", failed=True, session=session, biggest_wins=biggest_wins)
 
-    return render_template("login.html")
+    return render_template("login.html", session=session, biggest_wins=biggest_wins)
+
 
 @app.route("/logout")
 def logout():
@@ -58,7 +60,16 @@ def user_page(username):
 
 @app.route("/game")
 def game():
-    return render_template("game.html")
+    if "username" in session:
+        return render_template("game.html")
+    else:
+        biggest_wins = user_handler.get_biggest_wins()
+        return render_template("index.html", not_logged_in=True, session=session, biggest_wins=biggest_wins)
+
+
+@app.route("/rules")
+def rules():
+    return render_template("rules.html")
 
 
 if __name__ == '__main__':
