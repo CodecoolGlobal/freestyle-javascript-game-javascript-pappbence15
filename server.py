@@ -11,7 +11,8 @@ app.secret_key = os.environ.get('SECRET_KEY')
 
 @app.route("/")
 def hello():
-    return render_template("index.html", session=session)
+    biggest_wins = user_handler.get_biggest_wins()
+    return render_template("index.html", session=session, biggest_wins=biggest_wins)
 
 
 @app.route("/login", methods=['POST', 'GET'])

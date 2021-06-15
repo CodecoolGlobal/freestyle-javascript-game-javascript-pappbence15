@@ -25,6 +25,19 @@ def get_users_password(cursor, username):
 def register_user(cursor, user_name, password):
     query = """
         INSERT INTO users (user_name, password, balance)
-        values (%s, %s, %s)
+        VALUES (%s, %s, %s)
 """
     cursor.execute(query, (user_name, password, 5000))
+
+
+@connection_handler.connection_handler
+def get_biggest_wins(cursor):
+    query ="""
+        SELECT user_name, biggest_win
+        FROM users
+        ORDER BY biggest_win
+        LIMIT 5
+    """
+
+    cursor.execute(query)
+    return cursor.fetchall()
