@@ -1,10 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+{% extends index.html %}{% block title %}User page{% endblock %}
 <body>
+    {% block content %}
+        <h1>{{ name }}</h1>
+        <h1>{{ current_money }}</h1>
+        <form action="/userpage" method="post">
+            <button type="submit">Add</button>
+        </form>
+        <form action="/userpage" method="get">
+            <buttton type="submit">Delete</buttton>
+        </form>
+    {% endblock %}
+        <form action="index.html">
+        <button type="submit">Back to main</button>
+        </form>
 
 </body>
-</html>
