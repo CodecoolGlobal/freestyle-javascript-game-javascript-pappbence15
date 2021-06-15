@@ -1,15 +1,21 @@
-from flask import Flask, render_template, request, redirect, session
+from flask import Flask, render_template, request
+import user_handler
 
 app = Flask(__name__)
 
 
-@app.route("/", methods=['POST', 'GET'])
+@app.route("/")
 def hello():
     return render_template("index.html")
 
 
 @app.route("/login", methods=['POST', 'GET'])
 def login():
+    if request.method == "POST":
+        try:
+            username = request.form["username"]
+            password = request.form["password"]
+            correct_password = user_handler.get_users_password(username)[0]
     return render_template("login.html")
 
 

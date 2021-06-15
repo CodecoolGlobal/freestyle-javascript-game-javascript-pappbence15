@@ -9,3 +9,11 @@ def get_all_users(cursor):
 
     cursor.execute(query)
     return cursor.fetchall()
+
+def get_users_password(cursor, username):
+    query = """
+    SELECT password FROM users
+    WHERE user_name = %s"""
+
+    cursor.execute(query, (username,))
+    return cursor.fetchall()
