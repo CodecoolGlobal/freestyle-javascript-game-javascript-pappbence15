@@ -10,6 +10,8 @@ def get_all_users(cursor):
     cursor.execute(query)
     return cursor.fetchall()
 
+
+@connection_handler.connection_handler
 def get_users_password(cursor, username):
     query = """
     SELECT password FROM users
