@@ -21,6 +21,9 @@
             <a href="/registration">Register</a>
         {% else %}
             <a href="/{{ session['username'] }}">{{ session['username'] }}</a>
+            <form action="/logout">
+            <button type="submit">Logout</button>
+            </form>
         {% endif %}
     </div>
     {% block content %}

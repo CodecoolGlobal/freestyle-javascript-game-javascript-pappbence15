@@ -34,7 +34,7 @@ def login():
 @app.route("/logout")
 def logout():
     session.pop("username")
-    return redirect(url_for("/"))
+    return redirect(url_for("hello"))
 
 
 @app.route("/registration", methods=['POST', 'GET'])
@@ -48,9 +48,10 @@ def registration():
     return render_template("registration.html")
 
 
-@app.route("/userpage", methods=['POST', 'GET'])
-def user_page():
-    return render_template("userpage.html")
+@app.route("/<username>", methods=['POST', 'GET'])
+def user_page(username):
+    username = session["username"]
+    return render_template("userpage.html", username=username)
 
 
 @app.route("/game")
