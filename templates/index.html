@@ -34,7 +34,21 @@
     </div>
         </section>
     <div id="high-score">
-        <table>
+        <table id="biggest-wins" style="background-color: white">
+            <thead>
+            <tr>
+                <td>User</td>
+                <td>Biggest Win</td>
+            </tr>
+            </thead>
+            <tbody>
+            {% for user in biggest_wins %}
+                <tr>
+                    <td>{{ user.user_name }}</td>
+                    <td style="text-align: right">{{ user.biggest_win }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
         </table>
     </div>
     <div id="buttons" class="center-form">
