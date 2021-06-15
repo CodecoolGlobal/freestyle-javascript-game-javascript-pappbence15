@@ -4,7 +4,7 @@
     {% block head %}
     <meta charset="UTF-8">
     <title>{% block title %}Index{% endblock %}</title>
-        <link rel="stylesheet" href="style/style.css">
+        <link rel="stylesheet" href="static/style.css">
         <script src="JS/game.js" defer></script>
     {% endblock %}
 </head>
@@ -24,12 +24,16 @@
         {% endif %}
     </div>
     {% block content %}
-    <h1>Szia uram!</h1>
+        <section>
+    <div class="container">
+        <h1 data-text="SZIA URAM!">SZIA URAM!</h1>
+    </div>
+        </section>
     <div id="high-score">
         <table>
         </table>
     </div>
-    <div id="buttons">
+    <div id="buttons" class="center-form">
         <form action="game.html">
             <button type="submit">PLAY</button>
         </form>
