@@ -34,6 +34,7 @@ def login():
     return render_template("login.html", session=session, biggest_wins=biggest_wins)
 
 
+
 @app.route("/logout")
 def logout():
     session.pop("username")
@@ -47,7 +48,7 @@ def registration():
             hashed_password = util.hash_password(request.form['password'])
             user_handler.register_user(request.form['user_name'], hashed_password)
             return redirect("/")
-        return render_template('registration.html', error_message='two passwords are not matching')
+        return render_template('registration.html', error_message='Two passwords are not matching')
     return render_template("registration.html")
 
 
