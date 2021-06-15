@@ -51,7 +51,8 @@ def registration():
 @app.route("/<username>", methods=['POST', 'GET'])
 def user_page(username):
     username = session["username"]
-    return render_template("userpage.html", username=username)
+    user_details = user_handler.get_users_details(username)[0]
+    return render_template("userpage.html", username=username, user_details=user_details)
 
 
 @app.route("/game")

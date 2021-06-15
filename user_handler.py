@@ -28,3 +28,12 @@ def register_user(cursor, user_name, password):
         values (%s, %s, %s)
 """
     cursor.execute(query, (user_name, password, 5000))
+
+@connection_handler.connection_handler
+def get_users_details(cursor, username):
+    query = """
+    SELECT * FROM users
+    WHERE user_name = %s"""
+
+    cursor.execute(query, (username,))
+    return cursor.fetchall()
