@@ -37,6 +37,7 @@
         <h1 data-text="SZIA URAM!">SZIA URAM!</h1>
     </div>
         </section>
+        <div id="wrapper">
     <div id="high-score" class="high-score">
         <h3>High score</h3>
         <table id="biggest-wins" style="background-color: white">
@@ -57,16 +58,18 @@
         </table>
     </div>
     <div id="buttons" class="center-form">
-        <form action="/game">
-            <button type="submit">PLAY</button>
-        </form>
+            <form action="/game">
+            <button type="submit" class="play">PLAY</button>
+            </form>
+        <br>
         <form action="/rules">
-            <button type="submit">RULES</button>
+            <button type="submit" class="rules">RULES</button>
         </form>
         {% if not_logged_in == True %}
             <h3 style="color: white">You are not logged in!</h3>
         {% endif %}
     </div>
+        </div>
 {% endblock %}
 </body>
 </html>

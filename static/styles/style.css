@@ -287,6 +287,20 @@ div.high-score{
 h3{
     font-size: 200%;
 }
+#wrapper {
+    width: available;
+    border: 3px solid #eeff00;
+    overflow: hidden; /* will contain if #first is longer than #second */
+}
+#high-score {
+    width: 350px;
+    float:left;
+}
+#buttons {
+    overflow: hidden;
+    position: center;
+}
+
 /*colors:
 #01ffff -->blue
 #9d72ff --> purple
