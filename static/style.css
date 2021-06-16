@@ -159,7 +159,7 @@ section#status {
 }
 #take_spin:hover {
     border-radius: 15px;
-    background-color: #FAFAFA;
+    background-color: #ec4242;
 }
 h3{
     color: #fff;
@@ -175,4 +175,8 @@ h3{
 }
 img.rules{
     border: 5px #01FFFF;
+
+.slot_signs {
+    width: 150px;
+    height: 150px;
 }
