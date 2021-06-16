@@ -1,6 +1,7 @@
 initGame();
 
 function initGame() {
+    let spinnedResults = [];
     let spinButton = document.getElementById("take_spin");
     const imageNames = ["bar", "cherry", "faszlama", "grapes", "horseshoe", "lemon", "melon", "seven", "strawberry"]
     spinButton.addEventListener("click", manipulate_image);
@@ -8,21 +9,28 @@ function initGame() {
         let images = document.getElementsByClassName("slot_signs");
         for (let i = 0; i <images.length; i++ ) {
             if (i === 0) {
-                let j = 0;
+                intervalHandler(i, images, 3000, 0);
+            }
+            else if (i === 1) {
+                intervalHandler(i, images, 3500, 5);
+            }else {
+                intervalHandler(i, images, 4000, 7);
+            }
+        }
+    }
+    function intervalHandler(pictureIndex, images, stopTime, startingIndex) {
+        let j = startingIndex;
                 let slotOneSpin = setInterval(function (){
-                    images[i].src = "static/images/slot_" + imageNames[j]+ ".jpg";
+                    images[pictureIndex].src = "static/images/slot_" + imageNames[j]+ ".jpg";
                     j++;
-                    if (j===8) j=0;
+                    if (j===imageNames.length) j=0;
 
                 }, 50);
                 setTimeout(function () {
                     let finalPicture = imageNames[Math.floor(Math.random() * imageNames.length)];
                     clearInterval(slotOneSpin);
-                    images[i].src = "static/images/slot_" + finalPicture+ ".jpg";
-                }, 3000);
-            }
-            if ()
-        }
+                    images[pictureIndex].src = "static/images/slot_" + finalPicture+ ".jpg";
+                }, stopTime);
     }
 
 
