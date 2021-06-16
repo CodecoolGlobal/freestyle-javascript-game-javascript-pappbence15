@@ -18,12 +18,12 @@ section {
   align-items: center;
   justify-content: center;
 }
-.container h1 {
+h1 {
   font-size: 8vw;
   color: var(--var-color);
   position: relative;
 }
-.container h1::before {
+h1::before {
   position: absolute;
   content: attr(data-text);
   text-shadow: 0px 0px 20px var(--var-color);
@@ -66,8 +66,7 @@ section {
     filter: blur(5px) brightness(1);
   }
 }
-
-a{
+a.link{
     position: relative;
     display: inline-block;
     padding: 20px 40px;
@@ -79,10 +78,45 @@ a{
     overflow: hidden;
     transition: 0.5s;
 }
-a:hover{
+a.link:hover{
     color: #255784;
     background: #450eff;
     box-shadow: 0 0 10px #450eff, 0 0 40px rgba(69, 14, 255, 0.98), 0 0 80px rgba(69, 14, 255, 0.96);
+}
+
+.bn39 {
+  background-image: linear-gradient(135deg, #01ffff, #9d72ff);
+  border-radius: 6px;
+  box-sizing: border-box;
+  color: #ffffff;
+  display: block;
+  height: 50px;
+  font-size: 1.4em;
+  font-weight: 600;
+  padding: 4px;
+  position: relative;
+  text-decoration: none;
+  width: 7em;
+  z-index: 2;
+}
+
+.bn39:hover {
+  color: #fff;
+}
+
+.bn39 .bn39span {
+  align-items: center;
+  background: #0e0e10;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  transition: background 0.5s ease;
+  width: 100%;
+}
+
+.bn39:hover .bn39span {
+  background: transparent;
 }
 p{
   font-family: "Nunito", serif;
@@ -173,10 +207,48 @@ h3{
       0 0 102px #fff,
       0 0 151px #fff;
 }
-img.rules{
-    border: 5px #01FFFF;
+img.rules {
+    border-radius: 50px;
+    border: 10px solid transparent;
+    background: linear-gradient(45deg, red, yellow, lime, aqua, blue, magenta, red) border-box;
+    mask-composite: exclude;
+    margin-right: 200px;
+}
+span.rules{
+    color: white;
+    font-size: xx-large;
+    text-shadow:
+    0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #fff;
+}
+
 
 .slot_signs {
     width: 150px;
     height: 150px;
 }
+button {
+  transition-duration: 0.4s;
+  background-color: black;
+  color: white;
+  border-color: #01ffff;
+  padding: 12px 28px;
+  font-size: 20px;
+  border-radius: 6px;
+}
+
+
+button:hover {
+  background-color: #01ffff;
+  color: black;
+}
+hr.hr1{
+  border: 3px solid #01ffff;
+  border-radius: 6px;
+}
+/*colors:
+#01ffff -->blue
+#9d72ff --> purple
+*/

@@ -19,9 +19,9 @@
                 <button type="submit">Log in</button>
                 <br><br>
             </form>
-            <a href="/registration">Register</a>
+            <a href="/registration" class="link">Register</a>
         {% else %}
-            <a href="/{{ session['username'] }}">{{ session['username'] }}</a>
+            <a href="/{{ session['username'] }}" class="link">{{ session['username'] }}</a>
             <form action="/logout">
             <button type="submit">Logout</button>
             </form>
