@@ -81,8 +81,8 @@ def checkout():
         username = session["username"]
         user_details = user_handler.get_users_details(username)[0]
         new_balance = request.form['balance']
-        if int(request.form["current_win"]) > int(user_details["biggest_win"]):
-            biggest_win = int(request.form["current_win"])
+        if int(request.form["win_since_last_checkout"]) > int(user_details["biggest_win"]):
+            biggest_win = int(request.form["win_since_last_checkout"])
         else:
             biggest_win = int(user_details["biggest_win"])
         user_handler.checkout(new_balance, biggest_win, session["username"])

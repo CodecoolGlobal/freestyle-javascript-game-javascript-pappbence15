@@ -29,8 +29,10 @@
         <form action="/checkout" method="post">
             <label for="balance" style="color: white">Current money (Ft)</label><br>
                 <input type="number" id="balance" name="balance" value="{{user_details.balance}}"><br>
-            <label for="current_win" style="color: white">Current win (Ft)</label><br>
-                <input type="number" id="current_win" name="current_win" value="0"><br>
+            <label for="win_since_last_checkout" style="color: white">Win since last checkout (Ft)</label><br>
+                <input type="number" id="win_since_last_checkout" name="win_since_last_checkout" value="0"><br>
+            <label for="win_this_round" style="color: white">Win this round (Ft)</label><br>
+                <input type="number" id="win_this_round" name="win_this_round" value="0" disabled>
             <button type="submit">Checkout</button>
         </form>
     {% endblock %}
