@@ -22,9 +22,16 @@
             </section>
         <section id="take_spin">TAKE A SPIN!</section>
         </main>
-        <form action="/game">
-            <input type="number" min="100" step="50" id="bet-selector" placeholder="100">
+        <form action="/game" method="post">
+            <input type="number" min="100" step="50" id="bet-selector" value="100">
             <button type="submit">Choose bet</button>
+        </form>
+        <form action="/checkout" method="post">
+            <label for="balance" style="color: white">Current money (Ft)</label><br>
+                <input type="number" id="balance" name="balance" value="{{user_details.balance}}"><br>
+            <label for="current_win" style="color: white">Current win (Ft)</label><br>
+                <input type="number" id="current_win" name="current_win" value="0"><br>
+            <button type="submit">Checkout</button>
         </form>
     {% endblock %}
 
