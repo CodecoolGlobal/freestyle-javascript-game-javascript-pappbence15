@@ -134,7 +134,7 @@ main {
 }
 section#slots {
     border-radius: 15px;
-    background-color: #FAFAFA;
+    background-color: #030303;
 }
 
 section#status {
@@ -159,6 +159,10 @@ section#status {
 }
 #take_spin:hover {
     border-radius: 15px;
-    background-color: #FAFAFA;
+    background-color: #ec4242;
 }
+
+.slot_signs {
+    width: 150px;
+    height: 150px;
 }
