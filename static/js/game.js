@@ -1,10 +1,22 @@
 initGame();
 
+const odds = {
+    lemon : 1,
+    strawberry : 2,
+    grapes : 5,
+    melon : 10,
+    cherry : 25,
+    horseshoe : 50,
+    bar : 75,
+    seven : 100,
+    faszlama : 1000
+};
 function initGame() {
     let spinnedResults = [];
     let spinButton = document.getElementById("take_spin");
-    const imageNames = ["bar", "cherry", "faszlama", "grapes", "horseshoe", "lemon", "melon", "seven", "strawberry"]
+    const imageNames = ["bar", "cherry", "faszlama", "grapes", "horseshoe", "lemon", "melon", "seven", "strawberry"];
     spinButton.addEventListener("click", manipulate_image);
+
     function manipulate_image(){
         spinnedResults = [];
         let images = document.getElementsByClassName("slot_signs");
@@ -18,7 +30,7 @@ function initGame() {
                 intervalHandler(i, images, 4000, 7);
             }
         }
-        console.log(spinnedResults);
+            setTimeout(gameEndHandler, 5000);
 
     }
 
@@ -39,7 +51,18 @@ function initGame() {
                     spinnedResults.push(finalPicture);
                 }, stopTime);
     }
+    function gameEndHandler () {
+        const winningOdds = checkOdds(spinnedResults);
 
+        function checkOdds(resultList) {
+            if (resultList[0] === resultList[1] && resultList[1] === resultList[2]) {
+                let winningItem = resultList[0];
+                return odds[winningItem];
+            }
+        }
+
+
+    }
     // Your game can start here, but define separate functions, don't write everything in here :)
 
 
