@@ -32,7 +32,7 @@ def register_user(cursor, user_name, password):
 
 @connection_handler.connection_handler
 def get_biggest_wins(cursor):
-    query ="""
+    query = """
         SELECT user_name, biggest_win
         FROM users
         ORDER BY biggest_win
@@ -51,3 +51,13 @@ def get_users_details(cursor, username):
 
     cursor.execute(query, (username,))
     return cursor.fetchall()
+
+@connection_handler.connection_handler
+def checkout(cursor, new_balance, biggest_win, username):
+    query = """
+    UPDATE users
+    SET balance = %s,
+        biggest_win = %s
+    WHERE user_name = %s"""
+
+    cursor.execute(query, (new_balance, biggest_win, username))
