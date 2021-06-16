@@ -2,8 +2,8 @@
 {% block head %}
     <meta charset="UTF-8">
     <title>{% block title %}Game{% endblock %}</title>
-        <link rel="stylesheet" href="static/style.css">
-        <script src="JS/game.js" defer></script>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+        <script type="application/javascript" src="{{ url_for('static', filename='js/game.js') }}" defer></script>
 {% endblock %}
 <body>
     {% block content %}
@@ -20,6 +20,10 @@
             </section>
         <section id="take_spin">TAKE A SPIN!</section>
         </main>
+        <form action="/game">
+            <input type="number" min="100" step="50" id="bet-selector" placeholder="100">
+            <button type="submit">Choose bet</button>
+        </form>
     {% endblock %}
 
 </body>
