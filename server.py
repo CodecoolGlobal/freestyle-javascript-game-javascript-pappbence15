@@ -103,6 +103,13 @@ def add_money():
         return redirect("/user_page")
 
 
+@app.route("/delete")
+def delete_user():
+    username = session["username"]
+    user_handler.delete_user(username)
+    return redirect(url_for("logout"))
+
+
 if __name__ == '__main__':
     app.run(
         debug=True,
