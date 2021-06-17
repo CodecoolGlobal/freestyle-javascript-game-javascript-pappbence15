@@ -5,8 +5,8 @@ CREATE TABLE users (
     id serial NOT NULL,
     user_name text,
     password text,
-    balance integer,
-    biggest_win integer
+    balance text,
+    biggest_win text
     /*card_number text,
       cvv integer
      */
