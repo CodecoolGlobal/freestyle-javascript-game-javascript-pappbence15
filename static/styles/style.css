@@ -260,6 +260,7 @@ button.login:hover{
 hr.hr1{
   border: 3px solid #01ffff;
   border-radius: 6px;
+    width: available;
 }
 table {
   border-collapse: collapse;
@@ -298,8 +299,27 @@ h3{
 }
 #buttons {
     overflow: hidden;
-    position: center;
+    margin-right: 450px;
 }
+#rules-odds{
+    width: available;
+    overflow: hidden;
+}
+#odds{
+    float:right;
+    margin-right: 200px;
+}
+#rules {
+    overflow: hidden;
+    margin-left: 300px;
+}
+ul{
+    color: #FFFFFF;
+    list-style-type: disc;
+    margin: 80px;
+    font-size: 300%;
+}
+
 
 /*colors:
 #01ffff -->blue
