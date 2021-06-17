@@ -11,10 +11,37 @@ const odds = {
     seven : 100,
     faszlama : 1000
 };
+const imageNames = ["bar", "cherry", "faszlama", "grapes", "horseshoe", "lemon", "melon", "seven", "strawberry"];
+const imagesToPick = ["faszlama", "seven", "seven"];
+getImagesToPick();
+
+function getImagesToPick() {
+    for (let i=0; i < 5; i++ ) {
+        imagesToPick.push("bar");
+    }
+    for (let i=0; i < 10; i++ ) {
+        imagesToPick.push("horseshoe");
+    }
+    for (let i=0; i < 20; i++ ) {
+        imagesToPick.push("cherry");
+    }
+    for (let i=0; i < 35; i++ ) {
+        imagesToPick.push("melon");
+    }
+    for (let i=0; i < 50; i++ ) {
+        imagesToPick.push("grapes");
+    }
+    for (let i=0; i < 75; i++ ) {
+        imagesToPick.push("strawberry");
+    }
+    for (let i=0; i < 100; i++ ) {
+        imagesToPick.push("lemon");
+    }
+}
+
 function initGame() {
     let spinnedResults = [];
     let spinButton = document.getElementById("take_spin");
-    const imageNames = ["bar", "cherry", "faszlama", "grapes", "horseshoe", "lemon", "melon", "seven", "strawberry"];
     spinButton.addEventListener("click", manipulate_image);
 
     function manipulate_image(){
@@ -44,7 +71,7 @@ function initGame() {
 
                 }, 50);
         setTimeout(finalImage = function () {
-                    let finalPicture = imageNames[Math.floor(Math.random() * imageNames.length)];
+                    let finalPicture = imagesToPick[Math.floor(Math.random() * imagesToPick.length)];
                     clearInterval(slotOneSpin);
                     images[pictureIndex].src = "static/images/slot_" + finalPicture+ ".jpg";
                     console.log("finalpicture:"+finalPicture)

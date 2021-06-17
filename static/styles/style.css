@@ -226,6 +226,7 @@ span.rules{
     width: 150px;
     height: 150px;
 }
+
 button {
   transition-duration: 0.4s;
   background-color: black;
@@ -320,8 +321,8 @@ ul{
     font-size: 300%;
 }
 
+.bet-selector {
+    display: block;
+    text-align: center;
+}
 
-/*colors:
-#01ffff -->blue
-#9d72ff --> purple
-*/
