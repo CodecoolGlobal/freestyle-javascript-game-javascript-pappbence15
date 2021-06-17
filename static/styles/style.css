@@ -166,3 +166,7 @@ section#status {
     width: 150px;
     height: 150px;
 }
+.bet-selector {
+    display: block;
+    text-align: center;
+}

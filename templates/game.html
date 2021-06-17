@@ -11,7 +11,7 @@
         <button type="submit">Back to main</button>
         </form>
         <main>
-            <section id="status"> YOU LOSE!</section>
+            <section id="status"> SZIA URAM!</section>
             <section id="slots">
                 <div id="slot1">
                     <img src="static/images/slot_cherry.jpg" class="slot_signs" alt="Cherry"></div>
@@ -22,9 +22,9 @@
             </section>
         <section id="take_spin">TAKE A SPIN!</section>
         </main>
-        <form action="/game">
-            <input type="number" min="100" step="50" id="bet-selector" placeholder="100">
-            <button type="submit">Choose bet</button>
+        <form action="/game" class="bet-selector">
+            <input type="number" min="100" step="50" class="bet-select" placeholder="100">
+            <button type="submit" >Choose bet</button>
         </form>
     {% endblock %}
 
