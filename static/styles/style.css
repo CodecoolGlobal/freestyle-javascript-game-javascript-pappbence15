@@ -83,7 +83,7 @@ a.link:hover{
     background: #01ffff;
     box-shadow: 0 0 10px #01ffff, 0 0 40px rgb(1, 255, 255), 0 0 80px rgb(1, 255, 255);
 }
-
+/*
 .bn39 {
   background-image: linear-gradient(135deg, #01ffff, #9d72ff);
   border-radius: 6px;
@@ -117,7 +117,7 @@ a.link:hover{
 
 .bn39:hover .bn39span {
   background: transparent;
-}
+}*/
 p{
   font-family: "Nunito", serif;
   color: white;
@@ -160,8 +160,8 @@ input{
     color: white;
 }
 main {
-    border-radius: 5px;
-    background-color: #450eff;
+    border-radius: 15px;
+    background-color: #255784;
     margin-top: 30px;
     padding: 20px 15px;
     margin-left: calc((100% - 580px) / 2);
@@ -169,7 +169,7 @@ main {
 }
 section#slots {
     border-radius: 15px;
-    background-color: #FAFAFA;
+    background-color: #000000;
 }
 
 section#status {
@@ -178,10 +178,22 @@ section#status {
     padding-bottom: 25px;
     border-radius: 5px;
     text-align: center;
-    background-color: #37474F;
+    background-color: #255784;
     color: #FFFFFF;
-    font-size: 25px;
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #fff,
+      0 0 82px #fff;
+    animation: blinker 5s linear infinite;
+    font-size: 45px;
     font-family: 'Roboto Mono', monospace;
+}
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
 }
 #slot1, #slot2, #slot3 {
     display: inline-block;
@@ -190,11 +202,26 @@ section#status {
     margin-right: 15px;
     background-size: 150px;
     width: 150px;
-    height: 150px;
+    height: 155px;
 }
-#take_spin:hover {
-    border-radius: 15px;
-    background-color: #ec4242;
+#slots{
+    border: 3px solid #eeff00;
+}
+div.spin{
+    justify-content: center;
+    display: flex;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+#take_spin{
+    background: linear-gradient(321deg, #fa0e0e, rgba(177, 0, 0, 0.84));
+    background-size: 400% 400%;
+    -webkit-animation: AnimationName 1s ease infinite;
+    -moz-animation: AnimationName 1s ease infinite;
+    animation: AnimationName 1s ease infinite;
+    border: red;
+
+
 }
 h3{
     color: #fff;
@@ -326,3 +353,27 @@ ul{
     text-align: center;
 }
 
+#take_spin:hover {
+    background: linear-gradient(321deg, #ff0000, #000000);
+    background-size: 400% 400%;
+
+    -webkit-animation: AnimationName 1s ease infinite;
+    -moz-animation: AnimationName 1s ease infinite;
+    animation: AnimationName 1s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:22% 0%}
+    50%{background-position:79% 100%}
+    100%{background-position:22% 0%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:22% 0%}
+    50%{background-position:79% 100%}
+    100%{background-position:22% 0%}
+}
+@keyframes AnimationName {
+    0%{background-position:22% 0%}
+    50%{background-position:79% 100%}
+    100%{background-position:22% 0%}
+}
