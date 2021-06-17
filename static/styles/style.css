@@ -9,7 +9,7 @@ html {
   background-color: black;
 }
 :root {
-  --var-color: rgb(69, 14, 255);
+  --var-color: rgb(238, 255, 0);
 }
 section {
   /*height: 100vh;*/
@@ -18,12 +18,12 @@ section {
   align-items: center;
   justify-content: center;
 }
-.container h1 {
+h1 {
   font-size: 8vw;
   color: var(--var-color);
   position: relative;
 }
-.container h1::before {
+h1::before {
   position: absolute;
   content: attr(data-text);
   text-shadow: 0px 0px 20px var(--var-color);
@@ -66,12 +66,11 @@ section {
     filter: blur(5px) brightness(1);
   }
 }
-
-a{
+a.link{
     position: relative;
     display: inline-block;
     padding: 20px 40px;
-    color: #450eff;
+    color: #01ffff;
     text-transform: uppercase;
     letter-spacing: 6px;
     text-decoration: none;
@@ -79,10 +78,45 @@ a{
     overflow: hidden;
     transition: 0.5s;
 }
-a:hover{
+a.link:hover{
     color: #255784;
-    background: #450eff;
-    box-shadow: 0 0 10px #450eff, 0 0 40px rgba(69, 14, 255, 0.98), 0 0 80px rgba(69, 14, 255, 0.96);
+    background: #01ffff;
+    box-shadow: 0 0 10px #01ffff, 0 0 40px rgb(1, 255, 255), 0 0 80px rgb(1, 255, 255);
+}
+
+.bn39 {
+  background-image: linear-gradient(135deg, #01ffff, #9d72ff);
+  border-radius: 6px;
+  box-sizing: border-box;
+  color: #ffffff;
+  display: block;
+  height: 50px;
+  font-size: 1.4em;
+  font-weight: 600;
+  padding: 4px;
+  position: relative;
+  text-decoration: none;
+  width: 7em;
+  z-index: 2;
+}
+
+.bn39:hover {
+  color: #fff;
+}
+
+.bn39 .bn39span {
+  align-items: center;
+  background: #0e0e10;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  transition: background 0.5s ease;
+  width: 100%;
+}
+
+.bn39:hover .bn39span {
+  background: transparent;
 }
 p{
   font-family: "Nunito", serif;
@@ -117,10 +151,11 @@ input{
     overflow: hidden;
     border-radius:0.5em;
     outline: none;
-    border-color: #450eff;
-    color: white;
-    background-color: #5626fd;
+    border-color: #eeff00;
+    color: #eeff00;
+    background-color: #000000;
 }
+
 ::placeholder{
     color: white;
 }
@@ -134,7 +169,7 @@ main {
 }
 section#slots {
     border-radius: 15px;
-    background-color: #030303;
+    background-color: #FAFAFA;
 }
 
 section#status {
@@ -161,12 +196,133 @@ section#status {
     border-radius: 15px;
     background-color: #ec4242;
 }
+h3{
+    color: #fff;
+  text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #fff;
+}
+img.rules {
+    border-radius: 50px;
+    border: 10px solid transparent;
+    background: linear-gradient(45deg, red, yellow, lime, aqua, blue, magenta, red) border-box;
+    mask-composite: exclude;
+    margin-right: 200px;
+}
+span.rules{
+    color: white;
+    font-size: xx-large;
+    text-shadow:
+    0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #fff;
+}
+
 
 .slot_signs {
     width: 150px;
     height: 150px;
 }
+
+button {
+  transition-duration: 0.4s;
+  background-color: black;
+  color: white;
+  border-color: #01ffff;
+  padding: 12px 28px;
+  font-size: 20px;
+  border-radius: 6px;
+}
+
+
+button:hover {
+  background-color: #01ffff;
+  color: black;
+}
+button.login{
+    font: inherit;
+    padding: 0.2em 0.5em;
+    width:130px;
+    height:30px;
+    overflow: hidden;
+    border-radius:0.5em;
+    outline: none;
+    border-color: #eeff00;
+    color: #eeff00;
+    background-color: #000000;
+}
+button.login:hover{
+    background-color: #eeff00;
+    color: black;
+}
+hr.hr1{
+  border: 3px solid #01ffff;
+  border-radius: 6px;
+    width: available;
+}
+table {
+  border-collapse: collapse;
+  text-align: center;
+  vertical-align: middle;
+  color: #FFFFFF;
+    text-shadow:
+    0 0 7px #fff;
+    width: 100%;
+    font-size: 20px;
+}
+
+th, td {
+  border: 3px solid #01ffff;
+  padding: 10px;
+    background-color: black;
+}
+thead th{
+
+}
+div.high-score{
+    height: 400px;
+    width: 25%;
+}
+h3{
+    font-size: 200%;
+}
+#wrapper {
+    width: available;
+    border: 3px solid #eeff00;
+    overflow: hidden; /* will contain if #first is longer than #second */
+}
+#high-score {
+    width: 350px;
+    float:left;
+}
+#buttons {
+    overflow: hidden;
+    margin-right: 450px;
+}
+#rules-odds{
+    width: available;
+    overflow: hidden;
+}
+#odds{
+    float:right;
+    margin-right: 200px;
+}
+#rules {
+    overflow: hidden;
+    margin-left: 300px;
+}
+ul{
+    color: #FFFFFF;
+    list-style-type: disc;
+    margin: 80px;
+    font-size: 300%;
+}
+
 .bet-selector {
     display: block;
     text-align: center;
 }
+
