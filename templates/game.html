@@ -25,6 +25,18 @@
         <form action="/game" class="bet-selector">
             <input type="number" min="100" step="50" class="bet-select" placeholder="100">
             <button type="submit" >Choose bet</button>
+        <form action="/game" method="post">
+            <input type="number" min="100" step="50" id="bet-selector" value="100">
+            <button type="submit">Choose bet</button>
+        </form>
+        <form action="/checkout" method="post">
+            <label for="balance" style="color: white">Current money (Ft)</label><br>
+                <input type="number" id="balance" name="balance" value="{{user_details.balance}}"><br>
+            <label for="win_since_last_checkout" style="color: white">Win since last checkout (Ft)</label><br>
+                <input type="number" id="win_since_last_checkout" name="win_since_last_checkout" value="0"><br>
+            <label for="win_this_round" style="color: white">Win this round (Ft)</label><br>
+                <input type="number" id="win_this_round" name="win_this_round" value="0" disabled>
+            <button type="submit">Checkout</button>
         </form>
     {% endblock %}
 

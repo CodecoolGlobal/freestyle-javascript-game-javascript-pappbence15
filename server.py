@@ -62,7 +62,9 @@ def user_page(username):
 @app.route("/game")
 def game():
     if "username" in session:
-        return render_template("game.html")
+        username = session["username"]
+        user_details = user_handler.get_users_details(username)[0]
+        return render_template("game.html", user_details=user_details)
     else:
         biggest_wins = user_handler.get_biggest_wins()
         return render_template("index.html", not_logged_in=True, session=session, biggest_wins=biggest_wins)
@@ -72,6 +74,20 @@ def game():
 def rules():
     return render_template("rules.html")
 
+
+@app.route("/checkout", methods=["GET", "POST"])
+def checkout():
+    if request.method == "POST":
+        username = session["username"]
+        user_details = user_handler.get_users_details(username)[0]
+        new_balance = request.form['balance']
+        if int(request.form["win_since_last_checkout"]) > int(user_details["biggest_win"]):
+            biggest_win = int(request.form["win_since_last_checkout"])
+        else:
+            biggest_win = int(user_details["biggest_win"])
+        user_handler.checkout(new_balance, biggest_win, session["username"])
+
+        return redirect(url_for("hello"))
 
 if __name__ == '__main__':
     app.run(
