@@ -7,7 +7,6 @@
 {% endblock %}
 <body>
     {% block content %}
-        <a href="/" class="link">Back to main</a>
         <main>
             <section id="status"> SZIA URAM!</section>
             <section id="slots">
@@ -22,9 +21,9 @@
         <button id="take_spin">SPIN!</button>
                 </div>
             <div class="spin">
-        </main>
         <form action="/game" class="bet-selector">
-            <label for="bet">Choose bet: </label> <input name="bet" type="number" min="500" max="{{ user_details.balance }}" step="50" class="bet-select" value="500">
+            <label for="bet">Choose bet: </label><br>
+            <input name="bet" type="number" min="500" max="{{ user_details.balance }}" step="50" class="bet-select" value="500">
         </form>
                 </div>
             <div class="spin">
@@ -37,11 +36,12 @@
                 <input type="number" name="win_since_last_checkout" class="win_since_last_checkout" value="0" disabled="disabled"><br>-->
             <label for="win_this_round" style="color: white">Win this round (Ft)</label><br>
                 <input type="hidden" class="win_this_round" name="win_this_round" value="0">
-                <input type="number" class="win_this_round" name="win_this_round" value="0" disabled="disabled">
+                <input type="number" class="win_this_round" name="win_this_round" value="0" disabled="disabled"><br>
             <button type="submit">Checkout</button>
         </form>
                 </div>
         </main>
+        <a href="/" class="link">Back to main</a>
     {% endblock %}
 
 </body>
