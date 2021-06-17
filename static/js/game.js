@@ -90,6 +90,7 @@ function initGame() {
     function gameEndHandler () {
         const winningOdds = checkOdds(spinnedResults);
         calculateWin();
+        rewriteSziaUram(winningOdds);
 
         function checkOdds(resultList) {
             if (resultList[0] === resultList[1] && resultList[1] === resultList[2]) {
@@ -133,9 +134,15 @@ function initGame() {
             balanceInput[i].value = Number(balanceInput[i].value) - Number(bet.value);
             balanceInput[i].setAttribute("value", String(balanceInput[i].value));
         }
-
-
-
+    }
+    function rewriteSziaUram(winningOdds) {
+        let sziaUram = document.getElementById("status");
+        console.log(winningOdds);
+        if (winningOdds !== 0) {
+            sziaUram.innerText = "YOU WIN!"
+        }else {
+            sziaUram.innerText = "YOU LOSE..."
+        }
 
 
     }
