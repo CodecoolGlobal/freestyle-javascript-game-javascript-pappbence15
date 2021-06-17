@@ -14,8 +14,8 @@
             <th>Biggest Win</th>
             <tr>
                 <td>{{ user_details.user_name }}</td>
-                <td>{{ user_details.balance }}</td>
-                <td>{{ user_details.biggest_win }}</td>
+                <td>{{ user_details.balance | int }}</td>
+                <td>{{ user_details.biggest_win | int }}</td>
             </tr>
         </table>
         <a href="/" class="link">Back to main</a>
