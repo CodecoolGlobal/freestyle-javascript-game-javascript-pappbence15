@@ -13,6 +13,7 @@ const odds = {
 };
 const imageNames = ["bar", "cherry", "faszlama", "grapes", "horseshoe", "lemon", "melon", "seven", "strawberry"];
 const imagesToPick = ["faszlama", "seven", "seven"];
+const testList = ["faszlama","faszlama","faszlama","faszlama","faszlama","faszlama","faszlama","faszlama",]
 getImagesToPick();
 
 function getImagesToPick() {
@@ -43,6 +44,7 @@ function initGame() {
     let spinnedResults = [];
     let spinButton = document.getElementById("take_spin");
     spinButton.addEventListener("click", manipulate_image);
+    spinButton.addEventListener("click", balanceHandler);
 
     function manipulate_image(){
         spinnedResults = [];
@@ -71,7 +73,7 @@ function initGame() {
 
                 }, 50);
         setTimeout(finalImage = function () {
-                    let finalPicture = imagesToPick[Math.floor(Math.random() * imagesToPick.length)];
+                    let finalPicture = testList/*imagesToPick*/[Math.floor(Math.random() * testList/*imagesToPick*/.length)];
                     clearInterval(slotOneSpin);
                     images[pictureIndex].src = "static/images/slot_" + finalPicture+ ".jpg";
                     console.log("finalpicture:"+finalPicture)
@@ -80,17 +82,42 @@ function initGame() {
     }
     function gameEndHandler () {
         const winningOdds = checkOdds(spinnedResults);
+        calculateWin();
 
         function checkOdds(resultList) {
             if (resultList[0] === resultList[1] && resultList[1] === resultList[2]) {
                 let winningItem = resultList[0];
                 return odds[winningItem];
             }
+            else return 0;
+        }
+        function calculateWin() {
+            const bet = document.getElementsByClassName("bet-select")[0].value;
+            const winThis = document.getElementById("win_this");
+            const balanceInput = document.getElementById('balanceNotHidden');
+            winThis.value = bet * winningOdds;
+            balanceInput.value = Number(balanceInput.value) + Number(winThis.value);
+            balanceInput.setAttribute("value", String(balanceInput.value));
+            if (balanceInput.dataset.biggestWin){
+                if (winThis.value > balanceInput.dataset.biggestWin){
+                    balanceInput.dataset.biggestWin = winThis.value;
+                }
+            }else {balanceInput.dataset.biggestWin = winThis.value;}
+
         }
 
 
     }
-    // Your game can start here, but define separate functions, don't write everything in here :)
+    function balanceHandler() {
+        const winThis = document.getElementById("win_this");
+        winThis.value = 0;
+        const bet = document.getElementsByClassName("bet-select")[0].value;
+        const balanceInput = document.getElementById('balanceNotHidden');
+        balanceInput.value = Number(balanceInput.value) - Number(bet);
+        balanceInput.setAttribute("value", String(balanceInput.value));
+
+
+    }
 
 
 
