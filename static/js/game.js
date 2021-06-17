@@ -73,10 +73,17 @@ function initGame() {
 
                 }, 50);
         setTimeout(finalImage = function () {
-                    let finalPicture = testList/*imagesToPick*/[Math.floor(Math.random() * testList/*imagesToPick*/.length)];
+                    const balanceInput = document.getElementsByClassName('balance')[0];
+                    const bet = document.getElementsByClassName("bet-select")[0];
+                    let finalPicture;
+                    if (Number(balanceInput.dataset.balance) === Number(bet.value)){
+                        finalPicture = testList[Math.floor(Math.random() * testList.length)];
+                    }else {
+                        finalPicture = imagesToPick[Math.floor(Math.random() * imagesToPick.length)];
+                    }
+
                     clearInterval(slotOneSpin);
                     images[pictureIndex].src = "static/images/slot_" + finalPicture+ ".jpg";
-                    console.log("finalpicture:"+finalPicture)
                     spinnedResults.push(finalPicture);
                 }, stopTime);
     }
@@ -92,29 +99,43 @@ function initGame() {
             else return 0;
         }
         function calculateWin() {
-            const bet = document.getElementsByClassName("bet-select")[0].value;
-            const winThis = document.getElementById("win_this");
-            const balanceInput = document.getElementById('balanceNotHidden');
-            winThis.value = bet * winningOdds;
-            balanceInput.value = Number(balanceInput.value) + Number(winThis.value);
-            balanceInput.setAttribute("value", String(balanceInput.value));
-            if (balanceInput.dataset.biggestWin){
-                if (winThis.value > balanceInput.dataset.biggestWin){
-                    balanceInput.dataset.biggestWin = winThis.value;
+            const bet = document.getElementsByClassName("bet-select")[0];
+            const winThis = document.getElementsByClassName("win_this_round");
+            const balanceInput = document.getElementsByClassName('balance');
+            for (let i = 0; i < winThis.length; i++ ) {
+                winThis[i].value = bet.value * winningOdds;
+                balanceInput[i].value = Number(balanceInput[i].value) + Number(winThis[i].value);
+                balanceInput[i].setAttribute("value", String(balanceInput[i].value));
+                winThis[i].setAttribute("value", String(winThis[i].value));
+                if (balanceInput[i].dataset.biggestWin){
+                if (winThis[i].value > balanceInput[i].dataset.biggestWin){
+                    balanceInput[i].dataset.biggestWin = winThis[i].value;
                 }
-            }else {balanceInput.dataset.biggestWin = winThis.value;}
+                }else {balanceInput[i].dataset.biggestWin = winThis[i].value;}
+                bet.setAttribute("max", balanceInput[i].value);
+            }
+
 
         }
 
 
     }
     function balanceHandler() {
-        const winThis = document.getElementById("win_this");
-        winThis.value = 0;
-        const bet = document.getElementsByClassName("bet-select")[0].value;
-        const balanceInput = document.getElementById('balanceNotHidden');
-        balanceInput.value = Number(balanceInput.value) - Number(bet);
-        balanceInput.setAttribute("value", String(balanceInput.value));
+        const winThis = document.getElementsByClassName("win_this_round");
+        const bet = document.getElementsByClassName("bet-select")[0];
+        const balanceInput = document.getElementsByClassName('balance');
+        for (let i = 0; i < winThis.length; i++){
+            winThis[i].value = 0;
+            if (Number(bet.value) > Number(balanceInput[i].value)) {
+            bet.value = balanceInput[i].value;
+            }
+            balanceInput[i].dataset.balance = balanceInput[i].value;
+            balanceInput[i].value = Number(balanceInput[i].value) - Number(bet.value);
+            balanceInput[i].setAttribute("value", String(balanceInput[i].value));
+        }
+
+
+
 
 
     }

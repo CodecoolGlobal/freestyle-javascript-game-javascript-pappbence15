@@ -18,21 +18,21 @@
                 <div id="slot3">
                     <img src="static/images/slot_grapes.jpg" class="slot_signs" alt="Grapes"></div>
             </section>
-        <section id="take_spin">TAKE A SPIN!</section>
+        <button id="take_spin">TAKE A SPIN!</button>
         </main>
         <form action="/game" class="bet-selector">
-            <label for="bet">Choose bet: </label> <input name="bet" type="number" min="500" step="50" class="bet-select" value="500">
+            <label for="bet">Choose bet: </label> <input name="bet" type="number" min="500" max="{{ user_details.balance }}" step="50" class="bet-select" value="500">
         </form>
         <form action="/checkout" method="post">
             <label for="balance" style="color: white">Current money (Ft)</label><br>
                 <input type="hidden" name="balance" class="balance" value="{{user_details.balance}}" />
-                <input type="number" name="balance" id="balanceNotHidden" class="balance" value="{{user_details.balance}}" disabled="disabled"/><br>
+                <input type="number" name="balance" class="balance" value="{{user_details.balance}}" disabled="disabled"/><br>
             <!--<label for="win_since_last_checkout" style="color: white">Win since last checkout (Ft)</label><br>
                 <input type="hidden" name="win_since_last_checkout" class="win_since_last_checkout" value="0">
                 <input type="number" name="win_since_last_checkout" class="win_since_last_checkout" value="0" disabled="disabled"><br>-->
             <label for="win_this_round" style="color: white">Win this round (Ft)</label><br>
                 <input type="hidden" class="win_this_round" name="win_this_round" value="0">
-                <input type="number" id="win_this" class="win_this_round" name="win_this_round" value="0" disabled="disabled">
+                <input type="number" class="win_this_round" name="win_this_round" value="0" disabled="disabled">
             <button type="submit">Checkout</button>
         </form>
     {% endblock %}

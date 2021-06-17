@@ -52,6 +52,7 @@ def get_users_details(cursor, username):
     cursor.execute(query, (username,))
     return cursor.fetchall()
 
+
 @connection_handler.connection_handler
 def checkout(cursor, new_balance, biggest_win, username):
     query = """
