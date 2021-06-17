@@ -9,6 +9,9 @@ html {
     background-color: black;
 }
 body{
+    background-image: url("https://wallpaperaccess.com/full/4093095.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 :root {
   --var-color: rgb(238, 255, 0);
