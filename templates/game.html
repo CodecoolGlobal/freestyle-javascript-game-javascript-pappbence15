@@ -18,11 +18,16 @@
                 <div id="slot3">
                     <img src="static/images/slot_grapes.jpg" class="slot_signs" alt="Grapes"></div>
             </section>
-        <button id="take_spin">TAKE A SPIN!</button>
+            <div id="spin" class="spin">
+        <button id="take_spin">SPIN!</button>
+                </div>
+            <div class="spin">
         </main>
         <form action="/game" class="bet-selector">
             <label for="bet">Choose bet: </label> <input name="bet" type="number" min="500" max="{{ user_details.balance }}" step="50" class="bet-select" value="500">
         </form>
+                </div>
+            <div class="spin">
         <form action="/checkout" method="post">
             <label for="balance" style="color: white">Current money (Ft)</label><br>
                 <input type="hidden" name="balance" class="balance" value="{{user_details.balance}}" />
@@ -35,6 +40,8 @@
                 <input type="number" class="win_this_round" name="win_this_round" value="0" disabled="disabled">
             <button type="submit">Checkout</button>
         </form>
+                </div>
+        </main>
     {% endblock %}
 
 </body>

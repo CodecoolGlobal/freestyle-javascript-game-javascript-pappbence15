@@ -1,14 +1,23 @@
-{% extends "index.html" %}{% block title %}Log in/registrations{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+        <link rel="stylesheet" href="{{  url_for('static', filename='styles/style.css')}}">
+</head>
 <body>
     {% block content %}
         <div class="container">
         <h1 data-text="REGISTER">REGISTER</h1>
         </div>
         <form action="/registration" method="post">
-            <p>User name: <input type="text" name="user_name"></p>
-            <p>Password: <input type="password" name="password"></p>
-            <p>Repeat password: <input type="password" name="repeat_password"></p>
-            <button type="submit" class="button1">Registration</button>
+            <label for="user_name">User name: </label><br>
+                <input type="text" name="user_name"><br><br>
+            <label for="password">Password: </label><br>
+                <input type="password" name="password"><br><br>
+            <label for="repeat_password">Repeat password: </label><br>
+                <input type="password" name="repeat_password"><br><br>
+            <button type="submit" class="button1">Register</button>
         </form>
         <a href="/" class="link">Back to main</a>
     {% endblock %}

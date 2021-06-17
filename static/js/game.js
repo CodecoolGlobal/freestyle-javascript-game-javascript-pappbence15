@@ -45,6 +45,7 @@ function initGame() {
     let spinButton = document.getElementById("take_spin");
     spinButton.addEventListener("click", manipulate_image);
     spinButton.addEventListener("click", balanceHandler);
+    spinButton.addEventListener("click", initialSziaUram);
 
     function manipulate_image(){
         spinnedResults = [];
@@ -59,7 +60,7 @@ function initGame() {
                 intervalHandler(i, images, 4000, 7);
             }
         }
-            setTimeout(gameEndHandler, 5000);
+            setTimeout(gameEndHandler, 4200);
 
     }
 
@@ -90,6 +91,7 @@ function initGame() {
     function gameEndHandler () {
         const winningOdds = checkOdds(spinnedResults);
         calculateWin();
+        rewriteSziaUram(winningOdds);
 
         function checkOdds(resultList) {
             if (resultList[0] === resultList[1] && resultList[1] === resultList[2]) {
@@ -133,15 +135,17 @@ function initGame() {
             balanceInput[i].value = Number(balanceInput[i].value) - Number(bet.value);
             balanceInput[i].setAttribute("value", String(balanceInput[i].value));
         }
-
-
-
-
-
     }
-
-
-
-
-
+    function rewriteSziaUram(winningOdds) {
+        let sziaUram = document.getElementById("status");
+        if (winningOdds !== 0) {
+            sziaUram.innerText = "YOU WIN! 🤗"
+        }else {
+            sziaUram.innerText = "YOU LOSE 😞"
+        }
+    }
+    function initialSziaUram() {
+        let sziaUram = document.getElementById("status");
+        sziaUram.innerText = "LET'S SEE...👀"
+    }
 }
