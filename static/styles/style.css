@@ -167,6 +167,7 @@ main {
     padding: 20px 15px;
     margin-left: calc((100% - 580px) / 2);
     width: 559px;
+    box-shadow: 0 0 20px #eeff00, 0 0 25px #eeff00, 0 0 5px #eeff00;
 }
 section#slots {
     border-radius: 15px;
@@ -376,5 +377,17 @@ ul{
     0%{background-position:22% 0%}
     50%{background-position:79% 100%}
     100%{background-position:22% 0%}
+}
+.balance {
+    position: relative;
+    left: 7px;
+}
+.win_this_round {
+    position: relative;
+    left: 7px;
+}
+.checkout {
+    position: relative;
+    top: 10px;
 }
 
