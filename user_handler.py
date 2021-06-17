@@ -62,3 +62,12 @@ def checkout(cursor, new_balance, biggest_win, username):
     WHERE user_name = %s"""
 
     cursor.execute(query, (new_balance, biggest_win, username))
+
+
+@connection_handler.connection_handler
+def delete_user(cursor, username):
+    query = """
+    DELETE FROM users
+    WHERE user_name = %s"""
+
+    cursor.execute(query, (username, ))
