@@ -16,7 +16,6 @@
                 <label for="password"></label>
                 <input type="password" name="password" placeholder="Password">
                 <button type="submit" class="login">Log in</button>
-                <br><br>
             </form>
             <a href="/registration" class="link">Register</a>
         {% else %}
@@ -29,9 +28,9 @@
         <h3 style="color: white">Wrong username or password, try again!</h3>
         {% endif %}
     </div>
-    {% block content %}
-        <br>
+    <br>
         <hr class="hr1">
+    {% block content %}
         <section>
     <div class="container">
         <h1 data-text="SZIA URAM!">SZIA URAM!</h1>
@@ -71,5 +70,6 @@
     </div>
         </div>
 {% endblock %}
+    <br><br><br><br><br><br><br>
 </body>
 </html>

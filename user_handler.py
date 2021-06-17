@@ -35,7 +35,7 @@ def get_biggest_wins(cursor):
     query = """
         SELECT user_name, biggest_win
         FROM users
-        ORDER BY biggest_win
+        ORDER BY biggest_win DESC
         LIMIT 5
     """
 
