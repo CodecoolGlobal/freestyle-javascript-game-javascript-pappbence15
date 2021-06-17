@@ -89,6 +89,20 @@ def checkout():
 
         return redirect(url_for("hello"))
 
+
+@app.route("/add", methods=["GET", "POST"])
+def add_money():
+    if request.method == "POST":
+        username = session["username"]
+        user_details = user_handler.get_users_details(username)[0]
+        added_money = int(request.form["added_money"])
+        current_money = int(user_details["balance"])
+        new_balance = current_money + added_money
+        biggest_win = user_details["biggest_win"]
+        user_handler.checkout(new_balance, biggest_win, username)
+        return redirect("/user_page")
+
+
 if __name__ == '__main__':
     app.run(
         debug=True,
