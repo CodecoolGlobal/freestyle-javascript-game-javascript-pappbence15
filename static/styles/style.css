@@ -125,9 +125,6 @@ p{
   font-family: "Nunito", serif;
   color: white;
 }
-button{
-
-}
 .center-form{
     margin-left: auto;
     margin-right: auto;
@@ -170,7 +167,7 @@ main {
     padding: 20px 15px;
     margin-left: calc((100% - 580px) / 2);
     width: 559px;
-    box-shadow: 0 0 20px #eeff00, 0 0 25px #eeff00, 0 0 5px #eeff00;
+    box-shadow: 0 0 20px #FFFFFF, 0 0 25px #FFFFFF, 0 0 5px #eeff00;
 }
 section#slots {
     border-radius: 15px;
@@ -284,6 +281,7 @@ button.login{
     border-color: #eeff00;
     color: #eeff00;
     background-color: #000000;
+    box-shadow: 0 0 20px #eeff00;
 }
 button.login:hover{
     background-color: #eeff00;
@@ -310,9 +308,6 @@ th, td {
   padding: 10px;
     background-color: black;
 }
-thead th{
-
-}
 div.high-score{
     height: 400px;
     width: 25%;
@@ -322,7 +317,6 @@ h3{
 }
 #wrapper {
     width: available;
-    border: 3px solid #eeff00;
     overflow: hidden;
 }
 #high-score {
@@ -349,7 +343,7 @@ ul{
     color: #FFFFFF;
     list-style-type: disc;
     margin: 80px;
-    font-size: 300%;
+    font-size: 180%;
 }
 
 .bet-selector {
