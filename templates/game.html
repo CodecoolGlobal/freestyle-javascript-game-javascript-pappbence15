@@ -22,9 +22,9 @@
         <button id="take_spin">SPIN!</button>
                 </div>
             <div class="spin">
+        </main>
         <form action="/game" class="bet-selector">
-            <input type="number" min="100" step="50" class="bet-select" value="100">
-            <button type="submit" >Choose bet</button>
+            <label for="bet">Choose bet: </label> <input name="bet" type="number" min="500" max="{{ user_details.balance }}" step="50" class="bet-select" value="500">
         </form>
                 </div>
             <div class="spin">
@@ -32,11 +32,12 @@
             <label for="balance" style="color: white">Current money (Ft)</label><br>
                 <input type="hidden" name="balance" class="balance" value="{{user_details.balance}}" />
                 <input type="number" name="balance" class="balance" value="{{user_details.balance}}" disabled="disabled"/><br>
-            <label for="win_since_last_checkout" style="color: white">Win since last checkout (Ft)</label><br>
-                <input type="hidden" name="win_since_last_checkout" class="win_since_last_checkout" value="0" disabled="disabled">
-                <input type="number" name="win_since_last_checkout" class="win_since_last_checkout" value="0" disabled="disabled"><br>
+            <!--<label for="win_since_last_checkout" style="color: white">Win since last checkout (Ft)</label><br>
+                <input type="hidden" name="win_since_last_checkout" class="win_since_last_checkout" value="0">
+                <input type="number" name="win_since_last_checkout" class="win_since_last_checkout" value="0" disabled="disabled"><br>-->
             <label for="win_this_round" style="color: white">Win this round (Ft)</label><br>
-                <input type="number" id="win_this_round" name="win_this_round" value="0" disabled>
+                <input type="hidden" class="win_this_round" name="win_this_round" value="0">
+                <input type="number" class="win_this_round" name="win_this_round" value="0" disabled="disabled">
             <button type="submit">Checkout</button>
         </form>
                 </div>
