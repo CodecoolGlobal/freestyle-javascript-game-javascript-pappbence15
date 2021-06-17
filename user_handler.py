@@ -24,10 +24,10 @@ def get_users_password(cursor, username):
 @connection_handler.connection_handler
 def register_user(cursor, user_name, password):
     query = """
-        INSERT INTO users (user_name, password, balance)
-        VALUES (%s, %s, %s)
+        INSERT INTO users (user_name, password, balance, biggest_win)
+        VALUES (%s, %s, %s, %s)
 """
-    cursor.execute(query, (user_name, password, 5000))
+    cursor.execute(query, (user_name, password, 5000, 0))
 
 
 @connection_handler.connection_handler
